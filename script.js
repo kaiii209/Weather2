@@ -122,17 +122,29 @@ function updateForecastItems(weatherData){
         weather : [{id}],
         main : { temp }
     } = weatherData
-}
 
-  const forecastItem = ' 
+    const dateTaken = new Date(date)
+    const dateOptions ={
+        day : '2-digit',
+        month : 'short'
+    }
+
+    const dateResult = dateTaken.toLocaleDateString('en-US', dateOptions)
+
+const forecastItem = `
    <div class="forecast-item">
-                  <h5 class="forecast-item-date regular-txt">12 Jun</h5>
+                  <h5 class="forecast-item-date regular-txt">${dateResult}</h5>
                   <img src="assets-1/assets/weather/${getWeatherIcon(id)}" class="forecast-item-img">
                   <h5 class="forecast-item-temp">${Math.round(temp)}°C</h5>
             </div>
-  '
-  forecastItemsContainer.insertAdjacentHTML('beforeend', forecastItem)
+  `
+ forecastItemsContainer.insertAdjacentHTML('beforeend', forecastItem)
 
+
+}
+
+  
+  
 
 function showDisplaySection(section){
     [weatherInfoSection, searchCitySection, notFoundSection]
