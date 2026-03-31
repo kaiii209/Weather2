@@ -21,6 +21,37 @@ header("Location: login.html");
     
       <main class="main-container">
 
+      <!-- Current Location Banner -->
+<div class="location-banner" id="locationBanner" style="display:none;">
+  <div class="location-banner-left">
+    <span class="loc-dot"></span>
+    <div>
+      <p class="loc-label">Your location</p>
+      <p class="loc-city" id="locCity">--</p>
+    </div>
+  </div>
+  <div class="location-banner-right">
+    <p class="loc-temp" id="locTemp">--°C</p>
+    <p class="loc-condition" id="locCondition">--</p>
+  </div>
+</div>
+
+<!-- Side by side wrapper -->
+<div class="side-by-side" id="sideBySide" style="display:none;">
+  <div class="side-card" id="locationCard">
+    <p class="side-label">📍 Your Location</p>
+    <p class="side-city" id="sideLocCity">--</p>
+    <p class="side-temp" id="sideLocTemp">--°C</p>
+    <p class="side-condition" id="sideLocCondition">--</p>
+  </div>
+  <div class="side-card" id="searchedCard">
+    <p class="side-label">🔍 Searched</p>
+    <p class="side-city" id="sideSearchCity">--</p>
+    <p class="side-temp" id="sideSearchTemp">--°C</p>
+    <p class="side-condition" id="sideSearchCondition">--</p>
+  </div>
+</div>
+
        <header class="input-container">
              <input class="city-input" placeholder="Search City" type="text">
              <button class="search-btn">
@@ -48,6 +79,8 @@ location_on
                   <div class="weather-summary-info">
                         <h1 class="temp-txt">29°C</h1>
                         <h3 class="condition-txt regular-txt">Cloudy</h3>
+                         <!-- addingfavbtn -->
+                          <button id="addFavorite">⭐ Add to Favorite</button>
                   </div>
             </div>
           <div class="weather-condition-container">
@@ -115,6 +148,13 @@ air
                   </h4>
              </div>
        </section>
+
+      <!-- favorite section -->
+       <!-- <section class="favorites-container">
+    <h3>Your Favorite Cities</h3>
+    <ul id="favoriteList"></ul>
+      </section> -->
+
 
 
       </main>
