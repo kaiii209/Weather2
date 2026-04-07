@@ -1,0 +1,120 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+    background: linear-gradient(to top, rgb(0,0,0,0.15), rgb(225,225,225,0.15));
+    border-radius: 12px;
+    backdrop-filter: blur(100px);
+    padding: 30px 20px;
+    width: 300px;
+    margin: auto;
+}
+
+.back-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px;
+    align-self: flex-start;
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
+.back-btn:hover {
+    color: white;
+}
+.back-btn .material-symbols-outlined {
+    font-size: 18px;
+}
+
+.avatar-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+
+.profile-username {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 4px;
+}
+.profile-email {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin: 0;
+    font-weight: 400;
+}
+
+.profile-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    width: 100%;
+    margin: 20px 0;
+}
+
+.profile-cards {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+.profile-card {
+    flex: 1;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.profile-card .material-symbols-outlined {
+    font-size: 22px;
+    color: rgba(255,255,255,0.7);
+}
+.profile-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+}
+.profile-card p {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    margin: 0;
+    font-weight: 400;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ff6b6b;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 99px;
+    border: 1px solid rgba(255,100,100,0.3);
+    transition: 0.2s;
+    margin-top: 10px;
+}
+.logout-btn:hover {
+    background: rgba(255,100,100,0.1);
+}
+.logout-btn .material-symbols-outlined {
+    font-size: 18px;
+    color: #ff6b6b;
+}

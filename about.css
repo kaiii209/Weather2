@@ -1,0 +1,173 @@
+.about-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 0 16px;
+}
+.about-logo {
+    width: 75px;
+    height: 75px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(0,180,255,0.4), rgba(0,80,180,0.3));
+    border: 1px solid rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.about-logo .material-symbols-outlined {
+    font-size: 38px;
+    color: white;
+}
+.about-app-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    color: white;
+    letter-spacing: 0.5px;
+}
+.about-version {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.about-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    width: 100%;
+    margin: 14px 0;
+}
+
+.about-description {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0 6px;
+}
+
+.about-section {
+    width: 100%;
+}
+.about-section-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 0 0 10px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.about-section-title .material-symbols-outlined {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+}
+
+/* Features Grid */
+.about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+.about-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+.about-feature-item .material-symbols-outlined {
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    flex-shrink: 0;
+}
+
+/* Tech Stack */
+.about-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.tech-badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    font-size: 11px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Developer */
+.about-dev {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 12px 14px;
+}
+.about-dev .material-symbols-outlined {
+    font-size: 26px;
+    color: rgba(255,255,255,0.6);
+}
+.about-dev-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.45);
+    margin: 0;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.about-dev-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 2px 0 0;
+    color: white;
+}
+
+.about-footer {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    text-align: center;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+.main-container {
+    max-height: 90dvh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+.main-container::-webkit-scrollbar {
+    width: 4px;
+}
+.main-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+.main-container::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 99px;
+}
+.main-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.35);
+}

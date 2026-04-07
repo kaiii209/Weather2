@@ -18,6 +18,69 @@ header("Location: login.html");
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
+
+
+ <div class="menu-wrapper">
+    <button class="three-dot-btn" id="threeDotBtn">⋮</button>
+    <div class="dropdown-menu" id="dropdownMenu" style="display:none;">
+        
+        <!-- Profile -->
+        <div class="menu-item">
+            
+            <a href="profile.php" class="menu-item">
+    <span class="material-symbols-outlined">account_circle</span>
+    <span>Profile</span>
+</a>
+          
+        </div>
+
+        <div class="menu-divider"></div>
+
+        <!-- Favorites -->
+        <div class="menu-item">
+            <a href="fav.php" class="menu-item">
+    <span class="material-symbols-outlined">star</span>
+    <span>My Favorites</span>
+</a>
+           
+        </div>
+
+        <div class="menu-divider"></div>
+
+<!-- Toggle °C / °F -->
+<div class="menu-item" id="tempToggleItem" onclick="toggleTempDropdown()">
+    <span class="material-symbols-outlined">thermostat</span>
+    <span>Temperature</span>
+    <span class="material-symbols-outlined" id="tempArrow" style="margin-left:auto; font-size:18px;">expand_more</span>
+</div>
+
+<!-- Temperature Dropdown -->
+<div class="temp-dropdown" id="tempDropdown" style="display:none;">
+    <div class="temp-option active" id="celsiusBtn" onclick="selectTemp('C')">
+        <span class="material-symbols-outlined">check</span>
+        °C — Celsius
+    </div>
+    <div class="temp-option" id="fahrenheitBtn" onclick="selectTemp('F')">
+        <span class="material-symbols-outlined">check</span>
+        °F — Fahrenheit
+    </div>
+</div>
+
+<!-- About -->
+<a href="about.php" class="menu-item">
+    <span class="material-symbols-outlined">info</span>
+    <span>About App</span>
+</a>
+
+
+        <!-- Logout -->
+        <a href="php/logout.php" class="menu-item menu-logout">
+            <span class="material-symbols-outlined">logout</span>
+            <span>Logout</span>
+        </a>
+
+    </div>
+</div>
     
       <main class="main-container">
 
@@ -36,21 +99,8 @@ header("Location: login.html");
   </div>
 </div>
 
-<!-- Side by side wrapper -->
-<div class="side-by-side" id="sideBySide" style="display:none;">
-  <div class="side-card" id="locationCard">
-    <p class="side-label">📍 Your Location</p>
-    <p class="side-city" id="sideLocCity">--</p>
-    <p class="side-temp" id="sideLocTemp">--°C</p>
-    <p class="side-condition" id="sideLocCondition">--</p>
-  </div>
-  <div class="side-card" id="searchedCard">
-    <p class="side-label">🔍 Searched</p>
-    <p class="side-city" id="sideSearchCity">--</p>
-    <p class="side-temp" id="sideSearchTemp">--°C</p>
-    <p class="side-condition" id="sideSearchCondition">--</p>
-  </div>
-</div>
+
+
 
        <header class="input-container">
              <input class="city-input" placeholder="Search City" type="text">

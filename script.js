@@ -113,7 +113,22 @@ function getCurrentDate(){
    return currentDate.toLocaleDateString('en-GB', options)
 
 }
+function updateBackground(id) {
+    const body = document.body
+    body.classList.remove(
+        'weather-clear', 'weather-clouds', 'weather-rain',
+        'weather-drizzle', 'weather-thunderstorm', 'weather-snow',
+        'weather-atmosphere'
+    )
 
+    if (id === 800) body.classList.add('weather-clear')
+    else if (id <= 232) body.classList.add('weather-thunderstorm')
+    else if (id <= 321) body.classList.add('weather-drizzle')
+    else if (id <= 531) body.classList.add('weather-rain')
+    else if (id <= 622) body.classList.add('weather-snow')
+    else if (id <= 781) body.classList.add('weather-atmosphere')
+    else body.classList.add('weather-clouds')
+}
 
 
 
@@ -138,12 +153,14 @@ async function updateWeatherInfo(city){
 
     countryTxt.textContent = country
     currentCity = country
-    tempTxt.textContent = Math.round(temp) + ' °C'
+    currentTempCelsius = temp
+updateTempDisplay()
     conditionTxt.textContent = main
     humidityTxt.textContent = humidity + ' %'
     windTxt.textContent = speed + ' m/s'   
     currentDateTxt.textContent = getCurrentDate()
     weatherSummaryIcon.src = `assets-1/assets/weather/${getWeatherIcon(id)}` 
+    updateBackground(id)
 
     await updateForecastInfo(city) 
 
@@ -198,31 +215,11 @@ const forecastItem = `
   
   
 
-function showDisplaySection(section) {
+function showDisplaySection(section){
     [weatherInfoSection, searchCitySection, notFoundSection]
-        .forEach(s => s.style.display = 'none')
+    .forEach(s => s.style.display = 'none')
 
     section.style.display = 'flex'
-
-    // If weather is showing AND we have user location, switch to side-by-side
-    if (section === weatherInfoSection && userLocationCity !== '') {
-        locationBanner.style.display = 'none'
-        sideBySide.style.display = 'flex'
-
-        // Fill side-by-side location card
-        sideLocCity.textContent = userLocationCity
-        sideLocTemp.textContent = userLocationTemp
-        sideLocCondition.textContent = userLocationCondition
-
-        // Fill side-by-side searched card
-        sideSearchCity.textContent = currentCity
-        sideSearchTemp.textContent = tempTxt.textContent
-        sideSearchCondition.textContent = conditionTxt.textContent
-    } else if (section !== weatherInfoSection) {
-        // If going back to search/not-found, show banner again
-        sideBySide.style.display = 'none'
-        if (userLocationCity !== '') locationBanner.style.display = 'flex'
-    }
 }
 // btnjs
 // btnjs
@@ -307,3 +304,62 @@ async function detectUserLocation() {
 }
 
 detectUserLocation()
+locationBanner.addEventListener('click', () => {
+    if(userLocationCity !== ''){
+        updateWeatherInfo(userLocationCity)
+    }
+})
+
+// 3 dot menu
+const threeDotBtn = document.querySelector('#threeDotBtn')
+const dropdownMenu = document.querySelector('#dropdownMenu')
+
+threeDotBtn.addEventListener('click', () => {
+    dropdownMenu.style.display =
+        dropdownMenu.style.display === 'none' ? 'block' : 'none'
+})
+
+document.addEventListener('click', (e) => {
+    if (!threeDotBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.style.display = 'none'
+    }
+})
+
+// Auto load city from URL
+const urlParams = new URLSearchParams(window.location.search)
+const cityFromUrl = urlParams.get('city')
+if(cityFromUrl){
+    updateWeatherInfo(cityFromUrl)
+}
+
+// Temperature toggle
+let isCelsius = true
+let currentTempCelsius = 0
+
+function updateTempDisplay() {
+    if (isCelsius) {
+        tempTxt.textContent = Math.round(currentTempCelsius) + ' °C'
+        document.querySelector('#celsiusBtn').classList.add('active')
+        document.querySelector('#fahrenheitBtn').classList.remove('active')
+    } else {
+        const fahrenheit = (currentTempCelsius * 9/5) + 32
+        tempTxt.textContent = Math.round(fahrenheit) + ' °F'
+        document.querySelector('#fahrenheitBtn').classList.add('active')
+        document.querySelector('#celsiusBtn').classList.remove('active')
+    }
+}
+
+function toggleTempDropdown() {
+    const dropdown = document.querySelector('#tempDropdown')
+    const arrow = document.querySelector('#tempArrow')
+    const isOpen = dropdown.style.display === 'block'
+    dropdown.style.display = isOpen ? 'none' : 'block'
+    arrow.textContent = isOpen ? 'expand_more' : 'expand_less'
+}
+
+function selectTemp(unit) {
+    isCelsius = unit === 'C'
+    document.querySelector('#celsiusBtn').classList.toggle('active', isCelsius)
+    document.querySelector('#fahrenheitBtn').classList.toggle('active', !isCelsius)
+    updateTempDisplay()
+}
